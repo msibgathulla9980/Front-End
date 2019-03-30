@@ -1,0 +1,167 @@
+<!-- For Tool bar
+<app-retain-sidebar [toggleSidebar]="toggleNav"></app-retain-sidebar>      -->
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-toolbar fxFlex="100%;" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%">
+    <mat-toolbar-row>
+
+      <!-- To display menu -->
+      <button id="menubuttn" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggle()"
+        matTooltip="Menu">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+
+
+      <!-- Google keep image -->
+
+      <span><img src="./assets/image/keep.jpg" style="width:30px" class="img"></span>
+
+      <p id="text" fxHide.xs="true" fxHide.xs="true">Fundoo Keep</p>
+
+
+      <button mat-icon-button routerLink="/homepage" routerLinkActive="active" matTooltip="Home" class="home">
+        <img class="image" src="./assets/image/home.svg" height="90%" width="165%">
+      </button>
+      <!-- <button mat-icon-button (click)="refresh()" matTooltip="Refresh" >
+      <img class="image" src="./assets/image/refresh.svg" height="60%" width="60%" >
+   </button> -->
+      <!-- <div id="searchbox" fxLayout="row" fxLayoutGap="2%">
+    <div fxFlex="0%">
+      <button mat-icon-button id="buttn"><i id="search" class="material-icons">search</i></button>
+    </div>
+    <div fxFlex="100">
+      <input id="input" type="text" placeholder="Search..." name="searchString" (click)="searchtest()" [(ngModel)]="searchString">
+    </div>
+  </div>  -->
+
+      <!-- Search Bar -->
+      <div id="searchbox" fxLayoutGap="2%">
+        <div fxFlex="0%">
+          <button mat-icon-button (click)="searchTest()" matTooltip="Click to search" class="bar">
+            <img class="image" id="buttn" src="./assets/image/search.svg" height="90%" width="165%">
+          </button>
+        </div>
+        <div fxFlex="100%">
+          <input matInput id="input" type="text" placeholder="Search.." name="searchString" click="searchTest()"
+            [(ngModel)]="searchString" class="src">
+        </div>
+        <div>
+          <button mat-button *ngIf="searchString" matSuffix mat-icon-button class="button" aria-label="Clear" (click)="searchString=''">
+            <img class="image" src="./assets/image/clear.svg" height="35%" width="35%" >
+          </button>
+        </div>
+      </div>
+
+
+      <!-- <button mat-icon-button matTooltip="Remind me">
+          <img class="image" src="./assets/image/addalert.svg" height="45%" width="45%" >
+         </button> -->
+      <!-- Refreshing page -->
+
+
+
+      <button mat-icon-button (click)="refresh()" matTooltip="Refresh" class="ref">
+        <img class="image" src="./assets/image/refresh.svg" height="65%" width="65%">
+      </button>
+
+      <!-- <a mat-button routerLink="/homepage" routerLinkActive="active" matTooltip="Lists" title="grid view" >
+        <mat-icon>dns</mat-icon>
+      </a>  -->
+      <!-- <button mat-icon-button routerLink="/homepage" routerLinkActive="active" matTooltip="Home" class="home" >
+        <img class="image" src="./assets/image/home.svg" height="90%" width="165%" >
+      </button> -->
+      <!-- List view & Grid view -->
+      <!-- <button id="viewstream" mat-icon-button fxHide.xs="true" fxShow.sm="false"
+          fxShow.md="true" fxShow.lg="true">
+          <mat-icon (click)="viewList()" *ngIf="grid==0">view_stream</mat-icon>
+          <mat-icon (click)="viewGrid()" *ngIf="grid==1">view_module</mat-icon>
+        </button> -->
+      <button mat-icon-button *ngIf="!grid " (click)=hideButton() (clickButton)=onClickBtn() matTooltip="Grid view"
+        class="grid">
+        <img class="image" src="./assets/image/grid.svg" height="55%" width="55%">
+      </button>
+
+      <button mat-icon-button *ngIf="grid" (click)=hideButton() matTooltip="List view">
+        <img class="image" src="./assets/image/list.png" height="70%" width="70%">
+      </button>
+
+      <button mat-icon-button [matMenuTriggerFor]="settings" matTooltip="Settings" id="settings">
+        <img class="image" src="./assets/image/settings.svg" height="55%" width="55%">
+      </button>
+      <mat-menu #settings="matMenu">
+        <button mat-menu-item>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item>
+          <span>Send feedback</span>
+        </button>
+        <button mat-menu-item>
+          <span>Need help?</span>
+        </button>
+        <button mat-menu-item>
+          <span>App downloads</span>
+        </button>
+
+        <button mat-menu-item>
+          <span>Keyboard shorcuts</span>
+        </button>
+
+      </mat-menu>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- For notifications -->
+      <button mat-icon-button fxHide.xs="true" [matMenuTriggerFor]="notifications" matTooltip="My apps"
+        class="not">
+        <img class="image" src="./assets/image/menu1.svg" height="150%" width="250%">
+      </button>
+      <mat-menu #notifications="matMenu">
+      </mat-menu>
+
+      <!-- User Account -->
+      <button mat-icon-button class="icon-button" id="more" [matMenuTriggerFor]="menu">
+        <!-- <img class="image" src="./assets/image/useraccount.svg" height="65%" width="65%" > -->
+        
+          <img class="image1" *ngIf="imageData.imageSrc!=null" [src]="imageData.imageSrc" height="70%" width="70%">
+          <img class="image1" *ngIf="imageData.imageSrc===null" src="./assets/image/useraccount.svg" height="55%"
+              width="70%">
+       
+      </button> 
+      <mat-menu class="menu" #menu="matMenu" class="morecard">
+         
+        <button mat-menu-item  (click)="openDialog()">
+            <img class="image1" *ngIf="imageData.imageSrc!=null" [src]="imageData.imageSrc" height="70%" width="15%">
+            <img class="image1" *ngIf="imageData.imageSrc===null" src="./assets/image/useraccount.svg" height="70%"
+                width="15%">Tap here to change your picture
+        </button>
+        <hr>
+        <button mat-button (click)="logout()">Log out</button>
+        <br>
+        <button mat-button (click)="registration()">Add account</button>
+        <!-- <hr>
+            <button mat-button (click)="registration()">UploadFile</button>
+            <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+            <br> -->
+
+        <!-- </div> 
+      <button mat-icon-button class="icon-button" id="more" [matMenuTriggerFor]="menu">
+        <i id="accountcircle" class="material-icons" *ngIf="imageData.imageSrc===null">account_circle</i>
+        <img class="image" *ngIf="imageData.imageSrc!=null" [src]="imageData.imageSrc" height="60%"
+          width="60%"> -->
+        <!-- <button class="select" (click)="$event.stopPropagation()" (click)="fileInput.click()">Select File</button>
+<br>
+<br>
+<button class="upload" (click)="$event.stopPropagation()" (click)="onUpload()">Upload!</button> -->
+        <!-- <div style="text-align:center">
+	<label>
+		<input type="file" (click)="$event.stopPropagation()" (change)="selectFile($event)">
+		</label>
+		<button [disabled]="!selectedFiles" (click)="onUpload()">Upload</button>
+  </div>     -->
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<mat-divider></mat-divider>
+
+<!-- For Nav bar -->
+<app-retain-navbar [toggleSidebar]="toggleNav"></app-retain-navbar>

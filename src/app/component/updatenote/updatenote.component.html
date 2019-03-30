@@ -1,0 +1,87 @@
+
+<div class="notecard" [style.background-color]="data.color"  >
+    <br>
+    <div *ngFor="let image of data.image" class="imageslist">
+        <img [src]="getImages(image,data)" class="imageSize">
+      </div>
+  <div>
+    <input class="update" placeholder="Title" matInput [(ngModel)]="data.title" [value]=data.title  [style.background-color]="data.color">
+    <button *ngIf="data.pinned" mat-icon-button matTooltip="Unpin note" (click)="pinnedNote('unpinned',data)" class="button">
+        <img class="image" src="./assets/image/pin.svg" height="70%" width="50%" id="imgRem">
+      </button>
+      <button *ngIf="!data.pinned" mat-icon-button matTooltip="Pin note" (click)="pinnedNote('pinned',data)" class="button">
+          <img class="image" src="./assets/image/unpin.svg" height="70%" width="50%" id="imgRem">
+        </button>
+  </div>
+  <br>
+  <div>
+    <textarea class="update" matInput [(ngModel)]="data.description" [value]=data.description  [style.background-color]="data.color" ></textarea>
+  </div>
+  <mat-chip-list #chipList >
+      <mat-chip *ngFor="let label of data.labels" [selectable]="selectable" [removable]="removable"
+        (removed)="removeLabelNote(label,data)">
+        {{label.labelName}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <mat-chip *ngIf="data.reminder!==null" [selectable]="selectable" [removable]="removable"
+      (removed)="removeReminder(data)" color="data.color">
+      <mat-icon>timer</mat-icon>&nbsp;  
+      {{data.reminder| date:'short'}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <!-- | date:'short' -->
+    </mat-chip-list>
+  <div> 
+           <button mat-icon-button matTooltip="Remind me"  [matMenuTriggerFor]="remind">
+              <img class="image" src="./assets/image/addalert.svg" height="45%" width="45%" >
+            </button> 
+             <mat-menu #remind="matMenu" (click)="$event.stopPropagation()">
+              <div class="morecard">
+                <label> Note Reminder:</label>
+                <hr>
+                <label class="dt">
+                  Date Time:
+                <input [min]="min" [(ngModel)]="selectedMoment" [owlDateTimeTrigger]="dtPicker1" [owlDateTime]="dtPicker1"
+                  placeholder="select date and time">
+                <owl-date-time #dtPicker1></owl-date-time>
+                </label>
+              </div>
+            
+            <div class="morecard" >
+              <button mat-button class="saveButton" (click)="saveReminder(selectedMoment,data)" >Save</button>
+            </div>
+          </mat-menu>   
+          <button mat-icon-button matTooltip="Collaborator" (click)="collaborator(data)">
+              <img class="image" src="./assets/image/addperson.svg" height="45%" width="45%" >
+           </button>
+   <!-- <button mat-icon-button matTooltip="Change color">
+      <img class="image" src="./assets/image/pallete.svg" height="45%" width="45%" >
+   </button> -->
+   <app-color-picker [newNote]="data" (colorChange)="changeColor($event)"></app-color-picker>
+   <button mat-icon-button matTooltip="Add image">
+      <input style="display: none" type="file" (change)="onFileChanged($event,note)" #fileInput>
+      <img class="image" src="./assets/image/image.svg" height="45%" width="45%" (click)="fileInput.click()"> 
+ </button>
+
+   <button mat-icon-button (click)="archiveNote(data)" matTooltip="Archive">
+      <img class="image" src="./assets/image/archive.svg" height="35%" width="35%" >
+
+     </button>
+
+<!-- <button mat-icon-button  matTooltip="Pin note">
+<mat-icon>pin_drop</mat-icon>
+</button> -->
+<button mat-icon-button class="icon-button" [matMenuTriggerFor]="more" matTooltip="more"> 
+    <img class="image" src="./assets/image/morevert.svg" height="45%" width="45%" >
+</button>
+ <mat-menu #more="matMenu" class="morecard">
+     <button mat-button (click)="pushToTrash(data)">Delete Note</button>
+     <br>
+       <app-add-label-note  [note]="data" (eventAddLabelNote)="addLabelNote($event)"></app-add-label-note>  
+     <!-- <button mat-button (click)=openDialogForAddLabel()>Add label</button> -->
+   </mat-menu>
+    <div>
+    <button mat-button [mat-dialog-close]="data" (click)="closeClick(data)" style="float:right"
+      cdkFocusInitial>Close</button>
+  </div>  
+</div> 

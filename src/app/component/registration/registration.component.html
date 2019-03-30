@@ -1,0 +1,69 @@
+<div class="container" fxLayout="column"  fxLayoutGap="1%">
+        <div class="row1" fxFlex="33%" fxFlex.md="65" ></div>
+        <div class="row2" fxFlex="34%" fxLayout="row" ></div>
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxFlex="30%;" fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.md="40%">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <img src="./assets/image/keep.jpg" style="width: 100px;height:100px;">
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+                <h2>Register</h2>
+                <div class="form-group" class="container">
+                    <mat-form-field appearance="outline">
+                        <mat-label for="name"> Full Name</mat-label>
+                        <input matInput placeholder="Enter the  name" class="form-control" 
+                        formControlName="name"  [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                        <mat-error *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.name.errors.required">*Full Name is required</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+             
+                <div class="form-group" class="container">
+                    <mat-form-field appearance="outline">
+                        <mat-label for="emailId">Email ID</mat-label>
+                        <input matInput placeholder="Enter the Email ID" formControlName="emailId" class="form-control"
+                        formControlName="emailId"     [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+                        <mat-error *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.emailId.errors.required">EmailId is required</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group" class="container">
+                    <mat-form-field appearance="outline">
+                        <mat-label for="password">Password</mat-label>
+                        <input matInput placeholder="Enter the Password" class="form-control"
+                        formControlName="password"   [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.password.errors.required">*Password is required</mat-error>
+                            <mat-error *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group" class="container">
+                    <mat-form-field appearance="outline">
+                        <mat-label for="mobileNumber">MobileNumber</mat-label>
+                        <input matInput placeholder="Enter the MobileNumber" class="form-control"
+                        formControlName="mobileNumber"[ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }">
+                        <mat-error *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.mobileNumber.errors.required">*MobileNumber is required</mat-error>
+                            <mat-error *ngIf="f.mobileNumber.errors.minlength">MobileNumber must be 10 digit</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group" class="container">
+                    <button mat-button color="btn-primary" class="btn btn-link" >Register</button>
+                    <img *ngIf="loading"
+                        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                    <div> Already have account !!<br>        
+                        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a></div>
+                      
+                </div>
+            </form>
+        </div>
+    </mat-card>
+</div>
+</div>  

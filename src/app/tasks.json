@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "type": "process",
+            "command": "tsc",
+            "args": [
+                "ts/Program.ts",
+                "--outDir", "js",
+                "--sourceMap",
+                "--watch",
+                "--target", "es5"  // <-- here!
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$tsc"
+        }
+    ]
+}

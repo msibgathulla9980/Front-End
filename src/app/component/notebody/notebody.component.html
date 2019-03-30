@@ -1,0 +1,99 @@
+<div fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center"  >
+  <form [formGroup]="createNoteForm" >
+    <mat-accordion class="mat-accordion" >
+      <mat-expansion-panel [expanded]=false (opened)="showHeader = false" (closed)="onSubmit(createNoteForm.value)"
+        (closed)="showHeader = true" hideToggle="true" [style.background-color]="note.color"> 
+        <mat-expansion-panel-header>
+          <ng-container *ngIf="showHeader;else tempTtext" [style.background-color]="note.color">
+            <mat-panel-description>
+              Take a note...
+            </mat-panel-description>
+            <button mat-icon-button id="check" matTooltip="New list">
+                <i id="check_box" class="material-icons">check_box</i></button>&nbsp;&nbsp;
+                <button mat-icon-button  id="brush" matTooltip="New note with drawing">
+                    <i id="check_box" class="material-icons">brush</i></button>&nbsp;&nbsp;
+                    <button mat-icon-button id="img" matTooltip="New note with image">
+                        <i id="check_box" class="material-icons">image</i></button>
+          </ng-container>
+          <ng-template #tempTtext>
+
+          </ng-template>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <input matInput class="note" placeholder="Title" formControlName="title"
+            [ngClass]="{ 'is-invalid': submitted && f.title.errors }" style="width:500px;" [style.background-color]="note.color">
+          <!-- <button mat-icon-button (click)="pinnedNoteSave(createNoteForm.value)" matTooltip="pin">
+            <mat-icon>colorize</mat-icon>
+          </button> -->
+          <button mat-icon-button  matTooltip="pin" (click)="pinnedNote(createNoteForm.value)" class="button">
+              <img class="image" src="./assets/image/unpin.svg" height="70%" width="50%" >
+            </button>
+        </mat-panel-description>
+        <mat-panel-description>
+          <textarea matInput class="note" placeholder="Take a note.." formControlName="description"
+            [ngClass]="{ 'is-invalid': submitted && f.description.errors }" style="width:500px;" [style.background-color]="note.color"></textarea>
+        </mat-panel-description>
+        <mat-chip-list #chipList >
+            <mat-chip *ngFor="let label of note.labels" [selectable]="selectable" [removable]="removable"
+              (removed)="removeLabelNote(label,note)">
+              {{label.labelName}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <mat-chip *ngIf="note.reminder!==null" [selectable]="selectable" [removable]="removable"
+            (removed)="removeReminder(note)" color="note.color">
+            <mat-icon>timer</mat-icon>&nbsp;  
+            {{note.reminder| date:'short'}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <!-- | date:'short' -->
+          </mat-chip-list>
+          
+                 <button mat-icon-button matTooltip="Remind me"  [matMenuTriggerFor]="remind">
+                    <img class="image" src="./assets/image/addalert.svg" height="45%" width="45%" >
+                  </button> 
+                   <mat-menu #remind="matMenu" (click)="$event.stopPropagation()">
+                    <div class="morecard">
+                      <label> Note Reminder:</label>
+                      <hr>
+                      <label class="dt">
+                        Date Time:
+                      <input [min]="min" [(ngModel)]="selectedMoment" [ngModelOptions]="{standalone: true}" [owlDateTimeTrigger]="dtPicker1" [owlDateTime]="dtPicker1"
+                        placeholder="Date and time">
+                      <owl-date-time #dtPicker1></owl-date-time>
+                      </label>
+                    </div>
+                    <div class="morecard" >
+                      <button mat-button class="saveButton" (click)="addReminder(selectedMoment,note)" >Save</button>
+                    </div>
+                  </mat-menu> 
+                  <button mat-icon-button matTooltip="Collaborator" (click)="collaborator(note)">
+                      <img class="image" src="./assets/image/addperson.svg" height="45%" width="45%" >
+                   </button>
+
+          <app-color-picker [newNote]="note" (colorChange)="changeColor($event)"></app-color-picker>
+          <button mat-icon-button id="imgRem" matTooltip="Add image">
+              <img class="image" src="./assets/image/image.svg" height="45%" width="45%" >
+          </button>
+          <button mat-icon-button (click)="archiveNoteSave(createNoteForm.value)" matTooltip="Archive">
+              <img class="image" src="./assets/image/archive.svg" height="35%" width="35%" >
+          </button>
+         <button mat-icon-button class="icon-button" [matMenuTriggerFor]="more" matTooltip="more"> 
+                <img class="image" src="./assets/image/morevert.svg" height="45%" width="45%" >
+         </button>
+          <!-- <button mat-icon-button matTooltip="undo">
+              <img class="image" src="./assets/image/undo.svg" height="45%" width="45%" >
+          </button>
+          <button mat-icon-button matTooltip="redo">
+              <img class="image" src="./assets/image/redo.svg" height="45%" width="45%" >
+          </button> -->
+          <mat-menu #more="matMenu" class="morecard">
+                <app-add-label-note  [note]="note" (eventAddLabelNote)="addLabelNote($event)"></app-add-label-note>  
+              <!-- <button mat-button (click)=openDialogForAddLabel()>Add label</button> -->
+            </mat-menu>
+          <button mat-button (click)="showHeader= true">
+            <span>close</span>
+          </button>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>

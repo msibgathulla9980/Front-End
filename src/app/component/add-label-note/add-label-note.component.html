@@ -1,0 +1,29 @@
+<div>
+  <button mat-button [matMenuTriggerFor]="addLabels"  (click)="labelFilter($event,note.labels)">Add
+    Label</button>
+  </div>
+<mat-menu #addLabels="matMenu">
+    <div id="lablnote">
+  <p id="parah">Label note</p>
+  <div id="labelnote">
+    <!-- [(ngModel)]="query" -->
+    <input type="text"placeholder="  Enter label name..." name="filter" [(ngModel)]="filter" (click)="$event.stopPropagation()" class="textarea" id="srcbox">
+    <div fxFlex=10%>
+      <button mat-icon-button>  
+        <mat-icon style="font-size:15px">search</mat-icon>
+      </button> 
+    </div>
+  </div>
+  <div *ngFor="let label of newLabels | search:filter" id="label"  >
+    <mat-checkbox type="checkbox" (click)="onClickedCheckbox($event, label, note)">
+      {{label.labelName}}
+    </mat-checkbox>
+  </div>
+  <div>
+    <button mat-button *ngIf="filter!= ''" (click)="createNewLabel(filter,note)" class="chk">
+      <mat-icon>add</mat-icon>Create "{{filter}}"
+    </button>
+</div>
+</div>
+</mat-menu>
+

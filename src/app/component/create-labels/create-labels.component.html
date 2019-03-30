@@ -1,0 +1,21 @@
+<div class="container" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center">
+  <div fxFlex="80%">
+  <br>
+<br>
+<p>Label note</p>
+<div>
+  <textarea class="update"  matInput placeholder= "Enter label name" matInput [(ngModel)]="data.labelName" [value]=data.labelName></textarea>
+</div>
+
+  
+   <button mat-icon-button class="icon-button" id="more" [matMenuTriggerFor]="more">
+    <i id="accountcircle" class="material-icons">more_vert</i></button>
+  <mat-menu #more="matMenu" class="morecard">
+    <button mat-button (click)=deleteLabel(note)>Delete Label</button>
+  </mat-menu> 
+  <div>
+  <button mat-button [mat-dialog-close]="data" (click)="closeClick(data)" style="float:right"
+    cdkFocusInitial>Close</button>
+</div>
+</div>
+</div>

@@ -1,0 +1,35 @@
+<p class="edit">Edit label</p>
+<div fxLayout="row" fxLayoutGap="5%">
+    <!-- <div fxFlex="10%">
+        <mat-icon matTooltip="Clear">clear</mat-icon>
+    </div>
+    <div fxFlex=70%  contenteditable="true"  data-placeholder="Create new label" class="title" id="sentence" id="labelName" #labelName>
+    </div>
+    <div fxFlex="10%">
+        <mat-icon  class="icon" (click)=createLabel(labelName) matTooltip="Save label">done</mat-icon>
+    </div> -->
+    <mat-toolbar-row>
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+        </button>
+        <mat-form-field >
+        <input  matInput type="text" placeholder="Create new label" [(ngModel)]="value" #labelName>
+        </mat-form-field>
+        <mat-icon (click)="createLabel(value)" matTooltip="Save label" >done</mat-icon>
+        </mat-toolbar-row>
+</div>
+<br>
+<div *ngFor="let label of labels">
+    <div fxLayout=row>
+        <div fxFlex=10%> 
+            <mat-icon class="icon" (click)=deleteLabel(label) matTooltip="Delete label">delete</mat-icon>
+        </div>
+        <div fxFlex=80% class="textarea" data-text="Create new label" contenteditable="true" id="text" #labl>
+            {{label.labelName}}</div>
+        <div fxFlex=10%>
+            <mat-icon class="icon" (click)=labelUpdate(label,labl) matTooltip="Edit label">edit</mat-icon>
+        </div>
+    </div>
+</div>
+<br>
+<button mat-button style="float:right" (click)="closeDialog()">Done</button>

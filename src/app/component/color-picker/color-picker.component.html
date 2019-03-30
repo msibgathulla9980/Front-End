@@ -1,0 +1,13 @@
+ <!-- <button mat-icon-button id="changcolor" [matMenuTriggerFor]="menu">
+  <i class="material-icons">palette</i></button>  -->
+   <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="menu">
+    <img class="image" src="./assets/image/pallete.svg" height="45%" width="45%" >
+ </button>  
+
+<mat-menu #menu="matMenu" class="menucard">
+  <ul class="pallete">
+    <li *ngFor="let color of colors">
+      <div class="pallete-circle" (click)="changeColor(color)" [style.background-color]="color"></div>
+    </li>
+  </ul>
+</mat-menu>

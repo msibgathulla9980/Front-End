@@ -1,0 +1,37 @@
+ <div class="container" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center">
+     
+  <div fxFlex="80%">
+<app-notebody [notes]="notes" (eventToCreate)="refresh($event)">
+</app-notebody>
+</div>
+
+  <div fxFlex="40%">  
+      <span text-align="center"><p>Pinned</p></span>
+  <app-pin-note [notes]="notes | filterNote: 'pinned'" [grid]="grid" (updateEventNote)="onUpdateNote($event)">
+        
+  </app-pin-note>
+</div>  
+
+<div fxFlex="40%">
+    <span text-align="center"><p>Others</p></span>
+  <app-pin-note [notes]="notes | filterNote " [grid]="grid" (updateEventNote)="onUpdateNote($event)">
+  </app-pin-note>
+</div>
+
+</div> 
+
+<!-- <div class="container" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center">
+    <div fxFlex="40%">
+      <app-notesearchbody (eventCreate)="refresh($event)"></app-notesearchbody>
+    </div>
+    <div fxFlex="40%">
+      <span><b>pinned notes</b></span>
+      <app-pin-note [notes]="notes | noteFilter: 'pinned'" (updateNoteEvent)="onUpdateNote($event)">
+      </app-pin-note>
+    </div>
+    <div fxFlex="40%">
+      <span><b>other notes</b></span>
+      <app-pin-note [notes]="notes | noteFilter" (updateNoteEvent)="onUpdateNote($event)">
+      </app-pin-note>
+    </div>
+  </div> -->

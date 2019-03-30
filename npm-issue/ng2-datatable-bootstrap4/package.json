@@ -1,0 +1,67 @@
+{
+  "name": "ng2-datatable-bootstrap4",
+  "version": "2.3.6",
+  "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
+  "main": "dist/bundles/angular-datatable.umd.js",
+  "module": "dist/index.js",
+  "keywords": [
+    "angular",
+    "angular2",
+    "Angular 2",
+    "ng2",
+    "datatable",
+    "data-table",
+    "data table",
+    "pagination"
+  ],
+  "scripts": {
+    "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",
+    "bundling": "rollup -c",
+    "minify": "uglifyjs dist/bundles/angular-datatable.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/angular-datatable.umd.min.js",
+    "copy": "copyfiles LICENSE README.md dist",
+    "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy",
+    "build-only": "npm run cleanup && ngc",
+    "publish-to-npm": "cd dist && npm publish",
+    "link": "cd dist && npm link && cd .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com/akozyritskiy/ng2-datatable-bootstrap4.git"
+  },
+  "author": "Anton Kozyritskiy <anton.kozyritskiy@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@angular/core": "^4.4.1",
+    "@angular/animations": "^4.4.1",
+    "@angular/common": "^4.4.1",
+    "@angular/compiler": "^4.4.1",
+    "@angular/forms": "^4.4.1",
+    "@angular/platform-browser": "^4.4.1",
+    "@angular/cli": "^1.4.2",
+    "@angular/compiler-cli": "^4.4.1",
+    "@angular/platform-server": "^4.4.1",
+    "copyfiles": "^1.2.0",
+    "cz-conventional-changelog": "1.2.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.37.0",
+    "typescript": "~2.3.4",
+    "uglify-js": "^2.7.5",
+    "validate-commit-msg": "2.8.2"
+  },
+  "peerDependencies": {
+    "@angular/common": "^4.4.1",
+    "@angular/core": "^4.4.1",
+    "@angular/forms": "^4.4.1",
+    "@angular/platform-server": "^4.4.1",
+    "@angular/platform-browser": "^4.4.1",
+    "@angular/animations": "^4.4.1"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

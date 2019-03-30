@@ -1,0 +1,47 @@
+<mat-list>
+    <h3 class="collab">Collaborators</h3>
+    <hr>
+    <mat-list-item *ngIf="user!=null">
+        <img mat-list-icon class="image1" *ngIf="imageData.imageSrc===null" src="./assets/image/useraccount.svg" height="90%"
+        width="30%">
+      <img mat-list-icon class="image1" *ngIf="imageData.imageSrc!=null" [src]="imageData.imageSrc" height="190%"
+      width="130%">
+      <p mat-line> {{user.emailId}} (Owner)</p>
+    </mat-list-item>
+    <mat-list-item *ngFor="let collabUser of collabUsers">
+      <!-- <mat-icon mat-list-icon *ngIf="imageData.imageSrc===null">account_circle</mat-icon> -->
+      <!-- <img mat-list-icon class="image" *ngIf="imageData.imageSrc!=null" [src]="imageData.imageSrc"> -->
+      <p mat-line> {{collabUser.emailId}} </p>
+      <mat-icon mat-list-icon (click)="removeCollaborator(collabUser)" >clear</mat-icon>
+  
+    </mat-list-item>
+    <mat-list-item>
+        <button mat-icon-button matTooltip="Collaborator">
+            <img class="image" src="./assets/image/addperson.svg" height="65%" width="55%" >
+         </button>
+      <!-- <input matInput [(ngModel)]="emailId" placeholder="Person or email to share with" class="text">
+      <button mat-icon-button class="button">
+        <mat-icon (click)="collaborator(user,emailId)">done</mat-icon>
+      </button> -->
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Person or email to share with" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let user of users | searchUser:myControl.value" [value]="user.emailId">
+              {{user.emailId}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+      <button mat-icon-button class="button">
+        <mat-icon (click)="collaborate(myControl.value)">done</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div class="cancel">
+      <button mat-button (click)="closeClick()">Cancel</button>
+      <button mat-button (click)="collaborate(myControl.value)">Save</button>
+    </div>
+  </mat-list>
+   

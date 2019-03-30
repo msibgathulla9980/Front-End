@@ -1,0 +1,152 @@
+.notecard{
+    border-radius: 20px 20px 20px 20px;
+    padding:34px; 
+      
+
+        /* height: 150px; */
+    
+    word-wrap: break-word;
+}
+
+.textarea{
+    outline: none;
+}
+
+
+.update{
+   
+    text-align: left;
+     width: 91%;
+      height: 100%;
+      font-size:12pt;
+      border: hidden;
+      display: flex;
+      outline: none
+}
+
+
+
+
+$color: #f00;
+.button{
+  position: absolute;
+  right: 10px;
+
+}
+.showme{ 
+  display: none;
+}
+ .showhim:hover .size{
+   display : block;
+ }
+ .showhim:hover .ok{
+   display : none;
+ }
+
+.size{
+
+  width: 600px;
+    position: relative;
+  border-radius: 20px 20px 20px 20px;
+
+}
+
+.size:hover{
+  border: 1px solid lightgrey;
+  box-shadow: 0 1px 16px 4px lightgrey;
+opacity: 0.8;
+}
+
+:host {
+  .gk {
+    &-container {
+      margin: 10px 20px;
+      
+    }
+
+&-grid-view {
+      
+      display: flex;
+      flex-wrap: wrap;
+     justify-content: space-around;
+     
+      mat-card{
+       
+        width:395px;
+        margin: 20px;
+        position: relative;
+      }
+      
+    }
+    &-list-view {
+      
+      mat-card{
+        margin: 78px;
+        width:500px;
+        position: relative;
+      }
+     
+    }
+  }
+}
+
+.saveButton
+{
+  padding:0px 0px 10px 0px;
+    float: right;
+}
+
+.dt{
+  padding:10px 0px 10px 0px;   
+}
+
+
+.mat-menu-panel {
+  min-width: 277px;
+  max-width: 158px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 130px;
+  border-radius: 15px;
+  outline: -24;
+}
+
+.morecard {
+  padding: 15px 35px  22px 35px;
+}   
+
+::ng-deep.mat-dialog-container {
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    display: block;
+    padding: 0px;
+    border-radius: 35px 35px 35px 35px;
+    box-sizing: border-box;
+    overflow: hidden;
+    outline: 0;
+    // width: 550px;
+    // height: 210px;
+    min-height: inherit;
+    max-height: inherit;
+}
+
+
+.button{
+    position: absolute;
+    right: 387px;
+  
+  }
+
+  .imageSize
+  {
+    height:50%;
+     width:100%
+  };
+
+.images 
+    {
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin: 2px -11px;
+      height: fit-content;
+      width: 101px;
+    }

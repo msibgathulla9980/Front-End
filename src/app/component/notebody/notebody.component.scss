@@ -1,0 +1,58 @@
+
+          .note{
+      
+            text-align: left;
+            width: 100%;
+              height: 100%;
+              font-size:12pt;
+              font-style: bold;
+              border: hidden;
+              display: flex;
+              outline: none;
+          }
+
+          .mat-accordion {
+  
+            padding: 200px;}
+
+
+  .button{
+    position: relative;
+    right: 10px;
+  }
+
+  #check{
+    color: gray;
+  }
+
+  #brush{
+    color: gray;
+  }
+
+
+  #img{
+    color: gray;
+  }
+
+#check{
+  size:10px;
+}
+
+#imgRem{
+  color: gray;
+}
+
+input:focus{
+  background-color: none;
+}
+
+.morecard {
+  padding: 15px 35px  22px 35px;
+}
+
+
+.saveButton
+{
+  padding:0px 0px 10px 0px;
+    float: right;
+}

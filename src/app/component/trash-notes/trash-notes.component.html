@@ -1,0 +1,38 @@
+
+<br>
+<br>
+<div [ngClass]="grid ? 'gk-grid-view': 'gk-list-view'">
+  <div *ngFor="let note of notes | filterNote :'inTrash'"  class="gk-container">
+    <mat-card class="size" [style.background-color]="note.color">
+        <div *ngFor="let image of note.image" class="imageslist">
+            <img [src]="getImage(image,note)" class="imageSize">
+          </div>
+        <!-- [style.backgroundColor]="'#D4FF33'" -->
+      <mat-card-header>
+        <mat-card-title (click)=openDialog(note)>
+          {{note.title}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content (click)=openDialog(note)>
+        {{note.description}}
+      </mat-card-content>
+      <mat-chip-list #chipList >
+          <mat-chip *ngFor="let label of note.labels" [selectable]="selectable" [removable]="removable"
+            (removed)="removeLabelNote(label,note)">
+            {{label.labelName}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          </mat-chip-list>
+      <div class="mouseover">     
+        <button mat-icon-button class="icon-button" id="more" [matMenuTriggerFor]="more">
+            <img class="image" src="./assets/image/morevert.svg" height="45%" width="45%" >
+            </button>
+        <mat-menu #more="matMenu" class="morecard">
+          <button mat-button (click)=deleteNote(note)>Delete forever</button>
+          <br>
+          <span><button mat-button (click)=restoreNote(note)>Restore</button></span>
+        </mat-menu>
+      </div>
+    </mat-card>                                                                                                                                                                                                                                                                                                                                                   
+  </div>
+</div>

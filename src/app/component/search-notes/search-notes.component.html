@@ -1,0 +1,10 @@
+<div class="container" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center">
+  <div *ngIf="searchString===''">
+   <p text-align="center"> Enter text to search in search bar</p>
+    </div>
+    <div fxFlex="40%" *ngIf="searchString!==''">
+        <p class="para" text-align="center" > Search results based on note title </p>
+      <app-pin-note [notes]="notes | noteSearch:searchString" [grid]="grid" (updateEventNote)="onUpdateNote($event)">
+      </app-pin-note>
+  </div>
+</div>

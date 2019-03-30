@@ -1,0 +1,18 @@
+.pallete {
+    display: flex;
+    list-style: none;
+    width: 105px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 1px;
+        &-circle {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color:black;
+            color: r
+        }
+        li {
+            padding: 5.01px;
+        }
+    }

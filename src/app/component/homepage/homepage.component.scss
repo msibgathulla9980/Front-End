@@ -1,0 +1,229 @@
+.shrink-toolbar {
+  height: 100px;
+ 
+}
+
+main {
+  padding: 10px;
+  
+}
+
+
+/* padding left and right is for search and reset icons */
+.slinput input {
+  padding:10px;
+  width:80%;
+  border:1px solid #ccc;
+  padding-left:31px;
+  padding-right:30px;
+  color:black;
+  font-family: arial,sans-serif;
+  font-size: 16px;
+}
+/* Remove IE10's “clear field” X button */
+.slinput input::-ms-clear {
+    display: none;
+}
+.slinput input:focus {
+  border:1px solid #4d90fe;
+}
+/*   
+/* left side icon style (search icon) */
+.slinput .left-icon {
+  position:absolute;
+  left:10px;
+  top:11px;
+}
+.slinput .fa {
+  color:#444;
+  font-size: 16px;
+}
+.slinput .fa-close {
+  color:#ccc;
+}
+
+.slinput .active {
+  color:#555;
+}
+ 
+ 
+
+
+
+/* right side icon style (search icon) */
+.slinput .right-icon {
+  position:absolute;
+  padding:10px;
+  right:10px;
+  top:11px;
+  cursor:pointer;
+}
+.slinput {
+  position:relative;
+  width:100%;
+}
+
+.style #roman { 
+    list-style-type: upper-roman; 
+    padding-left: 50px; color: #000080; 
+
+  } 
+        
+  .searchContainer {
+    display: inline-flex;
+    flex: 1 1 300px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .searchContainer {
+    display: grid;
+    grid-template-columns:1.5rem 4fr 1fr;
+    width:300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .searchContainer:focus-within i {
+    display: none;
+  }
+  
+  .searchContainer:focus-within .searchBox{
+    grid-column:1/4;
+  }
+  
+  .searchContainer:focus-within .searchBox::placeholder {
+    color:transparent;
+  }
+  
+  .searchIcon {
+    padding: 0.5rem;
+    grid-row:1;
+    grid-column:1/2;
+    z-index:2
+  }
+  
+  .searchBox {
+    border: 0;
+    padding: 0.5rem;
+    grid-column:2/4;
+    grid-row:1;
+    outline:none;
+  }
+  
+  .searchButton {
+    background: FFF633;
+    border: 0;
+    color:F5FFFA;
+    padding: 0.5rem;
+    border-radius: 0;
+    grid-column:4/5;
+    grid-row:1;
+  }
+  #text{
+    margin-left: 20px;
+    font-style:Kavivanar;
+}
+
+#searchbox{
+  margin-left: 30px;
+  // background-color: rgb(221, 169, 24);
+  width: 100%;
+  height: 74%;
+}
+#button{
+  border-style: none;
+  width: 100%;
+  font-family: sans-serif;
+  height: 56px;
+  padding: 5px
+}
+
+#input{
+  width: 91%;
+  height: 75%;
+  // background-color: rgb(221, 169, 24);
+  border: hidden;
+  display: flex;
+  outline: none
+
+}
+
+.mat{
+size: 10px;
+}
+
+#searchbox{
+  margin-left: 30px;
+  width: 100%;
+  height: 74%;
+  margin-right: 30px;
+
+}
+
+#input{
+    width: 100%;
+    height: 75%;
+    border: hidden;
+    display: flex;
+    outline: none
+}
+
+.home{
+  padding:0px 0px 0px 25px;
+}
+
+.img{
+  padding:0px 0px 0px 15px;
+}
+
+.not{
+  padding: 0px 30px 20px 0px;
+}
+
+#accountcircle{
+  padding: 0px 0px 0px -10px;
+
+}
+
+.src{
+  padding:5px 5px 5px 5px;
+  font-size: 15px;
+}
+
+.bar{
+  padding:5px 20px 0px 5px;
+}
+
+// .ref{
+//   padding:0px 30px 0px 0px;
+// }
+
+
+// #settings{
+//   padding: 0px 80px 0px 0px;
+// }
+
+.select{
+padding:1px 1px 1px 1px;
+}
+
+.upload{
+  padding:1px 1px 1px 1px;
+}
+
+.menu{
+  padding:20px 100px 20px 100px;
+}
+
+.image1{
+  border: red;
+  background-color: #FFFFFF;
+  height:30px;
+  -moz-border-radius:75px;
+  -webkit-border-radius: 75px;
+  width:30px;
+}

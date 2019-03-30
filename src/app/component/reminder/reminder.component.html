@@ -1,0 +1,28 @@
+<!-- <br>
+<app-notebody></app-notebody>
+<mat-icon>notifications_none</mat-icon>
+<div class="rem">
+<p>Notes with upcoming reminders appear here</p>
+</div> -->
+<!-- <input [owlDateTime]="dt2" placeholder="Date Time">
+<span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
+<owl-date-time #dt2></owl-date-time> -->
+
+
+<!-- <label class="example-input-wrapper" >
+    Date Time:
+    <input placeholder="Date Time:"
+           [(ngModel)]="dateTime"
+           [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+    <owl-date-time #dt></owl-date-time>
+</label> -->
+
+<div class="container" fxLayout="column" fxLayoutGap="5%" fxLayoutAlign="center center">
+    <div fxFlex="40%">
+      <app-notebody (eventToCreate)="refresh($event)"></app-notebody>
+    </div>
+    <div fxFlex="40%">
+      <app-pin-note [notes]="notes | filterNote:'reminder'" [grid]="grid" (updateEventNote)="onUpdateNote($event)">
+      </app-pin-note>
+    </div>
+  </div>

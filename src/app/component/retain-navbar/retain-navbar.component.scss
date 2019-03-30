@@ -1,0 +1,254 @@
+.shrink-toolbar {
+  height: 100px;
+ 
+}
+:host{
+  .cdk-focused {
+      background-color:#f3e6ae;
+      border-bottom-right-radius: 25px;
+      border-top-right-radius: 25px;
+      }
+
+      mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+        height:700px;
+          }
+          mat-sidenav {
+            width: 250px;
+  
+          }
+          
+        
+/* padding left and right is for search and reset icons */
+.slinput input {
+  padding:10px;
+  width:80%;
+  border:1px solid #ccc;
+  padding-left:31px;
+  padding-right:30px;
+  color:black;
+  font-family: arial,sans-serif;
+  font-size: 16px;
+}
+/* Remove IE10's “clear field” X button */
+.slinput input::-ms-clear {
+    display: none;
+}
+.slinput input:focus {
+  border:1px solid #4d90fe;
+}
+/*   
+/* left side icon style (search icon) */
+.slinput .left-icon {
+  position:absolute;
+  left:10px;
+  top:11px;
+}
+.slinput .fa {
+  color:#444;
+  font-size: 16px;
+}
+.slinput .fa-close {
+  color:#ccc;
+}
+
+.slinput .active {
+  color:#555;
+}
+
+/* right side icon style (search icon) */
+.slinput .right-icon {
+  position:absolute;
+  padding:10px;
+  right:10px;
+  top:11px;
+  cursor:pointer;
+}
+.slinput {
+  position:relative;
+  width:100%;
+}
+
+.style #roman { 
+    list-style-type: upper-roman; 
+    padding-left: 50px; color: #000080; 
+
+  } 
+        
+  .searchContainer {
+    display: inline-flex;
+    flex: 1 1 300px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .searchContainer {
+    display: grid;
+    grid-template-columns:1.5rem 4fr 1fr;
+    width:300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .searchContainer:focus-within i {
+    display: none;
+  }
+  
+  .searchContainer:focus-within .searchBox{
+    grid-column:1/4;
+  }
+  
+  .searchContainer:focus-within .searchBox::placeholder {
+    color:transparent;
+  }
+  
+  .searchIcon {
+    padding: 0.5rem;
+    grid-row:1;
+    grid-column:1/2;
+    z-index:2
+  }
+  
+  .searchBox {
+    border: 0;
+    padding: 0.5rem;
+    grid-column:2/4;
+    grid-row:1;
+    outline:none;
+  }
+  
+  .searchButton {
+    background: FFF633;
+    border: 0;
+    color:F5FFFA;
+    padding: 0.5rem;
+    border-radius: 0;
+    grid-column:4/5;
+    grid-row:1;
+  }
+
+  .image{
+    padding:35px;
+    
+    }
+    
+    .image:hover{
+      border-radius: 15px;
+      background-color: #FFFACD;
+       .cdk-focused, .cdk-keyboard-focused , .cdk-focused:focus, .cdk-keyboard-focused:focus, .mat-radio-input {
+      
+        background-color: #FFFACD;
+      }
+    }
+
+
+    .buttonn{
+
+      border: none;
+      width: 250px;   
+      }
+      
+      .button:hover{
+        border-radius: 15px;
+        background-color: #FFFACD;
+      }
+      
+      .buttonn:hover{ 
+        border-radius: 15px;
+        background-color: #FFFACD;
+      }
+      
+      .labelbtn{
+      // margin-right:30px;
+      // margin-left: 5px;
+      margin: 0px 20px 0px 3px;
+      width: 250px;
+      border: none;
+      }
+      
+      .txtt{
+      white-space: pre-line; 
+       text-overflow: unset;
+      overflow: hidden !important;
+      margin: 0px 65px 0px 0px;
+      }
+      
+        }
+
+
+ 
+ 
+
+
+
+
+
+  #line{
+    height: -5px;
+    border: lightgray 1px solid;
+}
+
+#button{
+  border-style: none;
+  width: 100%;
+  font-weight: Semi Bold;
+  height: 56px;
+  padding: 0px;
+}
+
+#imgArc{
+// margin-right: 30px;
+// margin-left: -100px;
+margin: 0px -40px 0px -165px;
+padding: 0px 40px 0px 40px;
+}
+
+#imgNotes{
+margin-right: 30px;
+margin-left: -100px;
+}
+
+
+#imgtrace{
+// margin-right: 30px;
+// margin-left: -115px;
+margin: 0px -10px 0px -150px;
+}
+
+#imgRem{
+margin-right: 30px;
+margin-left: -70px;
+}
+
+#imgaddlab{
+margin-right: 30px;
+margin-left: -90px;
+
+}
+
+#imglab{
+ 
+  margin: -17px -9px -17px -120px;
+//    margin-left: -120px;
+//  margin-right: -5px;
+//  margin-left: -120px;
+  // padding: 0px 0px 0px 1px;
+} 
+
+#editbutton{
+margin-left: 17px;
+border: none;
+}
+
+
+#labl{
+  margin-right:0px;
+  margin-left: 0px;
+  padding: 0px 0px 0px 10px;
+}
+
+#txtt{
+  margin: 0px -50px 0px -50px;
+}

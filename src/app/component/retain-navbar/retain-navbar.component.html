@@ -1,10 +1,10 @@
 <mat-sidenav-container class="container_class">
   <mat-sidenav #drawer mode="side" opened role="navigation">
     <mat-nav-list>        
-      <button mat-stroked-button  class="image" id="button" (click)="notes()" ><img src="./assets/image/note.svg" 
+      <button mat-stroked-button  class="image" id="button" (click)="navigateTo('homepage/main-note')" ><img src="./assets/image/note.svg" 
         id="imgNotes" >Notes</button><br>
                 
-        <button mat-stroked-button class="image" id="button" (click)="reminder()"><img src="./assets/image/notifications.svg" id="imgRem">Reminders</button><br>
+        <button mat-stroked-button class="image" id="button" (click)="navigateTo('homepage/app-reminder')"><img src="./assets/image/notifications.svg" id="imgRem">Reminders</button><br>
           <hr id="line">
           <div>
             <span style="margin-left: 20px">
@@ -16,7 +16,7 @@
           
           <div *ngFor="let label of labels">
             <div fxLayout=row fxLayoutGap="10%">
-              <button mat-stroked-button class=labelbtn >   
+              <button mat-stroked-button (click)="getNoteWithLabel(label)" class=labelbtn >  
                     <img class="image" src="./assets/image/label1.svg" id="labl">
                 <div fxFlex="90%" class="txtt">{{label.labelName}}</div>
               </button>
@@ -42,9 +42,9 @@
           
 
   <hr id="line">
-   <button mat-stroked-button id="button" class="button" (click)="archive()"><img  src="./assets/image/archive.svg"
+   <button mat-stroked-button id="button" class="button" (click)="navigateTo('homepage/archivenotes')"><img  src="./assets/image/archive.svg"
     width="30%" height="30%" id="imgArc">Archive</button><br> 
-    <button mat-stroked-button id="button" class="button" (click)="trashnote()"><img src="./assets/image/trash1.svg"
+    <button mat-stroked-button id="button" class="button"  (click)="navigateTo('homepage/trash-notes')"><img src="./assets/image/trash1.svg"
       id="imgtrace" width="38%" height="38%">Trash</button><br>
 
               </mat-nav-list>

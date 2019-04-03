@@ -8,7 +8,6 @@ import { CollaboratorComponent } from '../../component/collaborator/collaborator
 import { DataService } from '../../../core/service/search.service';
 import { UserService } from '../../../core/service/user.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ImageComponent } from '../../component/image/image.component';
 
 
 
@@ -23,7 +22,7 @@ interface ImageData {
 })
 export class PinNoteComponent implements OnInit {
   constructor(private noteService: NoteService, public dialog: MatDialog, private router: Router,
-    public snackBar: MatSnackBar, private sanitizer: DomSanitizer, public userService: UserService, public data: DataService) { }
+              public snackBar: MatSnackBar, private sanitizer: DomSanitizer, public userService: UserService, public data: DataService) { }
   @Input() notes;
   @Input() grid = false;
   @Output() updateEventNote = new EventEmitter();
@@ -42,7 +41,7 @@ export class PinNoteComponent implements OnInit {
 
   ngOnInit() {
     // this.getImageNote();
-    this.getNotes();
+    // this.getNotes();
     // this.changeColor(this.data);
   }
   addLabelNote(data) {

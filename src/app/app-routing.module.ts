@@ -20,6 +20,7 @@ import { ImageComponent } from './component/image/image.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
 import { ColorPickerComponent } from './component/color-picker/color-picker.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
+import { NoteWithLabelComponent } from './component/note-with-label/note-with-label.component';
 
 const appRoutes: Routes = [
   {
@@ -107,6 +108,11 @@ const appRoutes: Routes = [
       {
         path: 'app-reminder',
         component: ReminderComponent
+      },
+
+      {
+        path: 'app-note-with-label/:id',
+        component: NoteWithLabelComponent
       },
 
 

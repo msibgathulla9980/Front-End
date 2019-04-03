@@ -25,43 +25,15 @@ export class RetainNavbarComponent implements OnInit {
   ngOnInit() {
     this.getLabels();
     this.toggleSidebar.subscribe(event => {
-        if (this.drawer) {
-          this.drawer.toggle();
-        }
-      });
-    }
+      if (this.drawer) {
+        this.drawer.toggle();
+      }
+    });
+  }
 
-
-  archive() {
-    this.router.navigate(['homepage/archivenotes']);
-}
-
-
-notes() {
-  this.router.navigate(['homepage/main-note']);
-  // this.goBack();
-}
-
-reminder() {
-  this.router.navigate(['homepage/app-reminder']);
-  // this.goBack();
-}
-
-trashnote() {
-
-  this.router.navigate(['homepage/trash-notes']);
-}
-
-logout() {
- // localStorage.removeItem('token');
-  this.router.navigate(['/login']);
-}
-
-registration() {
-  // localStorage.getItem('token');
-  this.router.navigate(['/registration']);
-}
-  // get f() { return this.Form.controls; }
+  public navigateTo(path) {
+    this.router.navigate([path]);
+  }
 
   labelEdit(): void {
     this.getLabels();
@@ -84,5 +56,9 @@ registration() {
       this.snackBar.open('Cannot retrieve labels or labels are empty', 'ERROR', { duration: 2000 });
     }
     );
+  }
+
+  public getNoteWithLabel(label) {
+    this.router.navigate(['homepage/app-note-with-label', label.labelName]);
   }
 }

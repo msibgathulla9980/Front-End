@@ -29,7 +29,7 @@ import { CollaboratorComponent } from './component/collaborator/collaborator.com
 import { ColorPickerComponent } from './component/color-picker/color-picker.component';
 import { SearchUserPipe } from './pipe/search-user.pipe';
 import { ReminderComponent } from './component/reminder/reminder.component';
-
+import { NoteWithLabelComponent } from './component/note-with-label/note-with-label.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
     CollaboratorComponent,
     ColorPickerComponent,
     SearchUserPipe,
-    ReminderComponent    // DataService
+    ReminderComponent,
+    NoteWithLabelComponent    // DataService
   ],
 
   imports: [

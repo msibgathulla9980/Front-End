@@ -1,4 +1,5 @@
 import { Collaborator } from '../collaborator/collaborator';
+import { Label } from '../label/label';
 
 export interface Note {
     noteId: string;
@@ -9,5 +10,6 @@ export interface Note {
      inTrash: boolean;
      userId: string;
      reminder: string;
+     labels: Label[];
      collaborators: Collaborator[];
 }

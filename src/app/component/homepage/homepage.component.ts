@@ -23,7 +23,7 @@ interface ImageData {
 
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
